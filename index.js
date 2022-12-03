@@ -1,5 +1,5 @@
-import {helloPage} from './components/helloPage.js';
+import {HelloPage} from './components/helloPage.js';
 
-const body = document.querySelector('body');
-const page = new helloPage(body);
-page.elementAdd();
+const div = document.querySelector('div');
+const page = new HelloPage(div);
+page.render();
