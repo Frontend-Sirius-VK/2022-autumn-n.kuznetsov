@@ -9,7 +9,7 @@ const app = express();
 app.use(morgan('dev'));
 app.use(express.static('.'));
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 app.get('/', (req,res) => {
     res.sendFile(path.join(__dirname, '.', 'index.html'));
