@@ -9,7 +9,7 @@ export class Header {
         header.classList.add('headStyle');
 
         const icons = document.createElement('img');
-        icons.src = './logo.png';
+        icons.src = '../Image/logo.jpg';
 
         const recipe = document.createElement('div');
         const linkRecipe = document.createElement('a');
@@ -38,7 +38,7 @@ export class Header {
         linkAvtor.classList.add('links');
         linkAvtor.href = '#';
         linkAvtor.innerHTML += 'Авторы';
-        login.append(linkAvtor);
+        avtor.append(linkAvtor);
 
         const login = document.createElement('div');
         const linkLogin = document.createElement('a');
