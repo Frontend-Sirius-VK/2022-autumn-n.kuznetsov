@@ -6,7 +6,7 @@ export class MainController {
         const view = new MainView();
         view.render();
 
-        const recipeCards = new RecipeData();
-        recipeCards.fetchData();
+        const recipeCard = new RecipeData();
+        recipeCard.fetchData();
     }
 }

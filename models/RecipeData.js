@@ -12,7 +12,7 @@ export class RecipeData {
 
     fetchData() {
         fetch('/getRecipe').then((response) => response.json()).then((data) => {
-            EventBus.emit('recipe-data:got-data ', data);
+            EventBus.emit('recipe-data:got-data', data);
         })
     }
 }

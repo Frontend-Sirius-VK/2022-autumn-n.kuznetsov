@@ -5,8 +5,11 @@ export class Header {
 
     render(container) {
 
-        const header = document.createElement('div');
-        header.classList.add('headStyle');
+        const header = document.createElement('header');
+        header.classList.add('header');
+
+        const headerStyle = document.createElement('div');
+        headerStyle.classList.add('header_style');
 
         const icons = document.createElement('img');
         icons.src = '../Image/logo.jpg';
@@ -47,8 +50,10 @@ export class Header {
         linkLogin.innerHTML += 'Войти';
         login.append(linkLogin);
 
-        header.append(icons, recipe, journal, ideas, avtor, login);
 
+        headerStyle.append(icons, recipe, journal, ideas, avtor, login);
+
+        header.appendChild(headerStyle);
 
         container.appendChild(header);
     }

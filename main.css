@@ -3,6 +3,16 @@
 @import "./components/RecipeCard/RecipeCard.css";
 
 
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto',sans-serif;
+    color: #000;
+    line-height: 1;
+  }
+
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+
 }

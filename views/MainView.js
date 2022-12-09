@@ -5,6 +5,7 @@ import EventBus from "../utils/eventBus.js";
 import { CardRecipe } from "../components/CardRecipe/CardRecipe.js";
 
 
+
 export class MainView {
     constructor() {
         this.header = null;
@@ -32,6 +33,7 @@ export class MainView {
         this.container.append(header, description, recipeContainer);
         root.append(this.container);
         this.header.render(header);
+        this.description.render(description);
     }
 
     update(data = {}) {

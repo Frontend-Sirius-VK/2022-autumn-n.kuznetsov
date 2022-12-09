@@ -1,4 +1,5 @@
-const {Pool} = require('pg'); 
+const Pool = require('pg').Pool
+require('dotenv').config();
 
 const pool = new Pool({
     user: process.env.DB_USER,
@@ -8,9 +9,10 @@ const pool = new Pool({
     database: process.env.DB_NAME
 })
 
+
+
 async function getRecipe() {
     try {
-
         const res = await pool.query('Select * from recipes');
         return res.rows;    
 
