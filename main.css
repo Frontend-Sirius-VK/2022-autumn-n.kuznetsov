@@ -2,7 +2,9 @@
 @import '/components/DescriptionSiteEda/DescriptionSiteEda.css';
 @import "./components/RecipeCard/RecipeCard.css";
 
-
+* {
+  box-sizing: border-box;
+}
 
 body {
     font-family: 'Roboto',sans-serif;
@@ -10,6 +12,10 @@ body {
     line-height: 1;
   }
 
+  body * {
+    max-height: 1000000em;
+    -moz-text-size-adjust: none;
+  }
 
 .page-container {
     display: flex;

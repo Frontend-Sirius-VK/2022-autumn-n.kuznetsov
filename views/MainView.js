@@ -17,7 +17,8 @@ export class MainView {
 
     render() {
         const root = document.querySelector('#root');
-        this.container = document.createElement('div');
+        this.container = document.createElement('div')
+        ;
         const header = document.createElement('header');
         header.classList.add('header');
         this.header = new Header(header);
@@ -27,8 +28,9 @@ export class MainView {
         this.description = new DescriptionSiteEda(description);
 
         const recipeContainer = document.createElement('div');
-        this.resipeCard = new CardRecipe(recipeContainer);
-        recipeContainer.append(this.recipeCard);
+        recipeContainer.classList.add('recipe');
+        this.recipeCard = new CardRecipe(recipeContainer);
+        
 
         this.container.append(header, description, recipeContainer);
         root.append(this.container);
