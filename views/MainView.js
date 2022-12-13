@@ -44,3 +44,4 @@ export class MainView {
         this.recipeCard.update(data);
     }
 }
+

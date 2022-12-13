@@ -57,17 +57,16 @@ header {
 }
 
 .links:hover {
-
-color: rgb(0, 0, 0);
-cursor: pointer;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
 }
 
 img {
     display: inline-flex;
--moz-box-align: center;
-align-items: center;
--moz-box-pack: center;
-justify-content: center;
-width: 60px;
-height: 60px;
+    -moz-box-align: center;
+    align-items: center;
+    -moz-box-pack: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
 }

@@ -17,10 +17,6 @@ app.get('/', (req,res) => {
     res.sendFile(path.join(__dirname, '.', 'index.html'));
 })
 
-app.get('/login', (req,res) => {
-    // TODO
-})
-
 app.listen(port, function() {
     console.log(`Server listening port ${port}`);
 })
@@ -30,3 +26,4 @@ app.get('/getRecipe', async (req, res) => {
     console.log(result);
     res.json(result);
 });
+
