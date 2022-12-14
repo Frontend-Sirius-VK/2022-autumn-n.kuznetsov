@@ -1,15 +1,23 @@
-import EventBus from "../utils/eventBus.js";
+import EventBus from '../../utils/eventBus.js';
+import {Loader} from '../loader/loader.js';
 
 export class RecipePage {
     constructor(parent) {
         const container = document.createElement('div');
         this.parent = parent;
         this.container = container;
-        EventBus.on('pecipe-page:loading', this.render.bind(this));
+        EventBus.on('recipe-page:loading', this.update.bind(this));
     }
 
     render(data) {
 
+        if (!data) {
+            this.container.innerHTML = '';
+            const loader = new Loader(this.container);
+            loader.render();
+            this.parent.prepend(this.container);
+            return;
+        }
 
         const {id, urlImage, nameRecipe, categoryRecipe, time, descriptionRecipe, author} = data;
 
@@ -57,7 +65,7 @@ export class RecipePage {
 
         const categotyRecipe = document.createElement('div');
         categotyRecipe.classList.add('card-categoty-recipe');
-        categotyRecipe.textContent = author;
+        categotyRecipe.textContent = categoryRecipe;
 
         categoryContainer.append(categotyRecipe);
 

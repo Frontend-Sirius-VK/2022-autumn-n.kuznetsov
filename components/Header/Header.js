@@ -13,7 +13,7 @@ export class Header {
 
         const icons = document.createElement('img');
         icons.src = '/assets/images/logo.jpg';
-
+        
         const recipe = document.createElement('div');
         const linkRecipe = document.createElement('a');
         linkRecipe.classList.add('links');

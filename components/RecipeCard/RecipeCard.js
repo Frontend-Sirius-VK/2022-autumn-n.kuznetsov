@@ -9,22 +9,21 @@ export class RecipeCard {
         this.container = document.createElement('div');
         this.container.classList.add('recipeCard')
 
-        const card = document.createElement('div');
-        card.classList.add('card');
-        this.container.append(card);
-
         const authorRecipe = document.createElement('div');
-        authorRecipe.author = author;
+        authorRecipe.textContent = author;
         authorRecipe.classList.add('recipe-card-author');
         this.container.append(authorRecipe);
 
+        const imageContainer = document.createElement('div')
+        imageContainer.classList.add('imageContainer')
         const image = document.createElement('img');
         image.src = url_image;
         image.classList.add('recipe-card-image');
-        this.container.appendChild(image);
+        imageContainer.append(image)
+        this.container.appendChild(imageContainer);
 
         const recipeName = document.createElement('div');
-        recipeName.name_recipe = name_recipe;
+        recipeName.textContent = name_recipe;
         recipeName.classList.add('recipe-card-name');
         this.container.append(recipeName);
         

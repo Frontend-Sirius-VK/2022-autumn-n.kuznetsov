@@ -14,18 +14,28 @@ const db = require('./models/db.js')
 
 
 app.get('/', (req,res) => {
-    res.sendFile(path.join(__dirname, '.', 'index.html'));
-})
+    try {
+        res.sendFile(path.join(__dirname, '.', 'index.html'));
+    } catch (error){
+        res.status(500).end();
+    }
+});
 
 
 app.listen(port, function() {
     console.log(`Server listening port ${port}`);
-})
+});
 
 app.get('/getRecipe', async (req, res) => {
-    const result = await db.getRecipe();
-    console.log(result);
-    res.json(result);
+    try {
+        const result = await db.getRecipe();
+        if (!result){
+            res.status(500).end();
+        }
+        res.json(result);
+    } catch (error){
+        res.status(500).end();
+    }
 });
 
 app.get('/getRecipeById/:id', async (req,res) => {

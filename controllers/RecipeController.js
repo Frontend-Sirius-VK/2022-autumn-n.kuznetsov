@@ -1,15 +1,15 @@
 
 import {RecipeView} from '../views/RecipeView.js';
-import {pageData} from '../models/pageData.js';
+import {PageData} from '../models/pageData.js';
 import EventBus from '../utils/eventBus.js';
 
-export class PostController {
+export class RecipeController {
     process(id) {
         const view = new RecipeView();
         view.render();
 
-        const recipeCard = new pageData();
-        EventBus.emit('oneRecipeCard:loading');
+        const recipeCard = new PageData();
+        EventBus.emit('recipe-page:loading');
         recipeCard.fetchDataById(id);
     }
 }
