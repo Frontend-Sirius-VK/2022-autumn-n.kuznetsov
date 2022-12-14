@@ -5,12 +5,21 @@ export class RecipeCard {
     }
 
     render(recipe) {
-        const {url_image, name_recipe, category_recipe, time, description_recipe} = recipe;
+        const {url_image, name_recipe, category_recipe, time, description_recipe, author} = recipe;
         this.container = document.createElement('div');
         this.container.classList.add('recipeCard')
 
+        const card = document.createElement('div');
+        card.classList.add('card');
+        this.container.append(card);
+
+        const authorRecipe = document.createElement('div');
+        authorRecipe.author = author;
+        authorRecipe.classList.add('recipe-card-author');
+        this.container.append(authorRecipe);
+
         const image = document.createElement('img');
-        image.url_image = url_image;
+        image.src = url_image;
         image.classList.add('recipe-card-image');
         this.container.appendChild(image);
 
