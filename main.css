@@ -23,7 +23,7 @@ body {
 
 }
 
-.error-container-error-status__p {
+.container-error-status {
   font-size: 30px;
   font-weight: 900;
   color: var(--text-spec-color);
@@ -33,7 +33,7 @@ body {
 
 }
 
-.error-container-error-text__p {
+.container-error-text {
   color: var(--text-spec-color);
   display: flex;
   align-items: center;
@@ -41,6 +41,6 @@ body {
   font-size: 20px;
 }
 
-.error-container__div {
+.error-container {
   margin-top: 300px;
 }

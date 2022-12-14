@@ -22,6 +22,15 @@ app.get('/', (req,res) => {
 });
 
 
+app.get('/recipe/:id', (req,res) => {
+    try {
+        res.sendFile(path.join(__dirname + '/index.html'));
+    } catch (error){
+        res.status(500).end();
+    }
+});
+
+
 app.listen(port, function() {
     console.log(`Server listening port ${port}`);
 });

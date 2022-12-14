@@ -53,14 +53,14 @@ export class MainView {
         this.container = document.createElement('div');
 
         const errorContainer = document.createElement('div');
-        errorContainer.classList.add('error-container__div');
+        errorContainer.classList.add('error-container');
 
         const errorStatus = document.createElement('p');
-        errorStatus.classList.add('error-container-error-status__p');
+        errorStatus.classList.add('container-error-status');
         errorStatus.textContent = data[0];
 
         const errorText = document.createElement('p');
-        errorText.classList.add('error-container-error-text__p');
+        errorText.classList.add('container-error-text');
         errorText.textContent = data[1];
 
         errorContainer.append(errorStatus, errorText);
