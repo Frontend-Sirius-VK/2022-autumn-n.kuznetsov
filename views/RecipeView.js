@@ -4,10 +4,10 @@ import EventBus from '../utils/eventBus.js';
 
 export class RecipeView {
     constructor() {
-        this.container = null;
+        this.containerPage = null;
         this.header = null;
-        this.recipe = null;
-
+        this.recipePage = null;
+        this.root = document.querySelector('#root');
         EventBus.on('recipe-page-card:got-data', this.update.bind(this));
         EventBus.on('recipe-page-card:not-found', this.errorUpdate.bind(this));
         EventBus.on('recipe-page-card:bad-request', this.errorUpdate.bind(this));
@@ -15,10 +15,9 @@ export class RecipeView {
     }
 
     render() {
-        const root = document.querySelector('#root');
-        root.innerHTML = '';
-        this.container = document.createElement('div');
-        this.container.classList.add('page-container');
+        this.root.innerHTML = ''
+        this.containerPage = document.createElement('div');
+        this.containerPage.classList.add('page-container');
 
         const headerContainer = document.createElement('div');
         headerContainer.classList.add('page-header');
@@ -26,26 +25,29 @@ export class RecipeView {
 
         const pageContainer = document.createElement('div');
         pageContainer.classList.add('recipe');
-        this.recipe = new RecipePage(pageContainer);
+        this.recipePage = new RecipePage(pageContainer);
 
-        this.container.append(headerContainer, pageContainer);
-        this.container.append(pageContainer);
-        root.append(this.container);
+        this.containerPage.append(headerContainer, pageContainer);
+        this.root.append(this.containerPage);
+        
 
         this.header.render(headerContainer);
     }
 
     update(data = {}) {
-        if (!data || !Object.keys(data)) {
+        if (!data) {
             return;
         }
-        this.recipe.innerHTML = '';
-        this.recipe.update(data);
+        this.recipePage.innerHTML = '';
+        this.recipePage.update(data);
     }
 
     renderError(data) {
-        const root = document.querySelector('#root');
         this.container = document.createElement('div');
+
+        const headerElement = document.createElement('div');
+        headerElement.classList.add('header');
+        this.header = new Header(headerElement);
 
         const errorContainer = document.createElement('div');
         errorContainer.classList.add('error-container');
@@ -60,13 +62,14 @@ export class RecipeView {
 
         errorContainer.append(errorStatus, errorText);
 
-        this.container.append(errorContainer);
-        root.append(this.container);
+        this.container.append(headerElement ,errorContainer);
+        this.root.append(this.container);
+        this.header.render(headerElement);
     }
 
     errorUpdate(data) {
-        if (this.recipe) {
-            this.recipe.innerHTML = '';
+        if (this.containerPage) {
+            this.containerPage.innerHTML = '';
         }
         this.renderError(data);
     }

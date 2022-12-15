@@ -1,8 +1,8 @@
-import {DescriptionSiteEda} from "../components/DescriptionSiteEda/DescriptionSiteEda.js";
-import {Header} from "../components/Header/Header.js";
+import {DescriptionSiteEda} from '../components/DescriptionSiteEda/DescriptionSiteEda.js';
+import {Header} from '../components/Header/Header.js';
 
-import EventBus from "../utils/eventBus.js";
-import { CardRecipe } from "../components/CardRecipe/CardRecipe.js";
+import EventBus from '../utils/eventBus.js';
+import { CardRecipe } from '../components/CardRecipe/CardRecipe.js';
 
 
 
@@ -38,6 +38,7 @@ export class MainView {
         this.root.append(this.container);
         this.header.render(header);
         this.description.render(description);
+        
     }
 
     update(data = {}) {
@@ -49,8 +50,11 @@ export class MainView {
     }
 
     renderError(data) {
-        const root = document.querySelector('#root');
-        this.container = document.createElement('div');
+        this.container.innerHTML = '';
+
+        const headerElement = document.createElement('div');
+        headerElement.classList.add('header');
+        this.header = new Header(headerElement);
 
         const errorContainer = document.createElement('div');
         errorContainer.classList.add('error-container');
@@ -65,8 +69,9 @@ export class MainView {
 
         errorContainer.append(errorStatus, errorText);
 
-        this.container.append(errorContainer);
-        root.append(this.container);
+        this.container.append(headerElement ,errorContainer);
+        this.root.append(this.container);
+        this.header.render(headerElement);
     }
 
     errorUpdate(data) {

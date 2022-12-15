@@ -30,6 +30,7 @@ export class RecipeData {
             })
 
             .then((data) => {
+                this.recipe = data;
                 EventBus.emit('recipe-card:got-data', data);
         })
 }

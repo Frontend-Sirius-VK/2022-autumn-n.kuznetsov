@@ -1,5 +1,6 @@
 import {MainController} from '../controllers/MainController.js';
 import {RecipeController} from '../controllers/RecipeController.js';
+import EventBus from "../utils/eventBus.js";
 
 
 
@@ -17,6 +18,16 @@ const routes = [
 
 export class Router {
     constructor() {
+        EventBus.off('recipe-page:loading');
+        EventBus.off('recipe:loading');
+        EventBus.off('recipe-data:got-data');
+        EventBus.off('recipe-data:not-found');
+        EventBus.off('recipe-data:bad-request');
+        EventBus.off('recipe-data:server-error');
+        EventBus.off('recipe-page-card:got-data');
+        EventBus.off('recipe-page-card:not-found');
+        EventBus.off('recipe-page-card:bad-request');
+        EventBus.off('recipe-page-card:server-error');
         this.onDocumentClick = this.onDocumentClick.bind(this);
     }
 
@@ -36,7 +47,7 @@ export class Router {
     getID() {
         const pathParser = window.location.pathname.split('/')
         let id;
-        if (pathParser[1] === 'recipe') {
+        if (pathParser[1] === 'undefined') {
             id = pathParser[2]
         }
         return id
@@ -49,15 +60,13 @@ export class Router {
 
     invokeController() {
         const id = this.getID();
-        const pathname = window.location.pathname;
+        const controllerСheck = new MainController();
+        const {pathname} = window.location;
         const result = routes.find((route) => {
             const regexp = new RegExp(route.path );
             const matches = pathname.match(regexp);
 
-            if (!matches) {
-                return false;
-            }
-            return true;
+            return Boolean(matches)
         });
 
         if (!result) {
@@ -65,7 +74,11 @@ export class Router {
         }
         const ControllerClass = result.controller;
         const controller = new ControllerClass();
-        controller.process(id);
+        if (result.controller !== controllerСheck){
+            controller.process(id);
+        } else {
+            controller.process();
+        }
 
     }
 
