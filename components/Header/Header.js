@@ -36,12 +36,12 @@ export class Header {
         linkIdeas.innerHTML += 'Идеи';
         ideas.append(linkIdeas);
 
-        const avtor = document.createElement('div');
-        const linkAvtor = document.createElement('a');
-        linkAvtor.classList.add('links');
-        linkAvtor.href = '#';
-        linkAvtor.innerHTML += 'Авторы';
-        avtor.append(linkAvtor);
+        const author = document.createElement('div');
+        const linkAuthor = document.createElement('a');
+        linkAuthor.classList.add('links');
+        linkAuthor.href = '#';
+        linkAuthor.innerHTML += 'Авторы';
+        author.append(linkAuthor);
 
         const login = document.createElement('div');
         const linkLogin = document.createElement('a');
@@ -51,7 +51,7 @@ export class Header {
         login.append(linkLogin);
 
 
-        headerStyle.append(icons, recipe, journal, ideas, avtor, login);
+        headerStyle.append(icons, recipe, journal, ideas, author, login);
 
         header.append(headerStyle);
 
