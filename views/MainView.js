@@ -13,7 +13,7 @@ export class MainView {
         this.description = null
         this.container = null
         this.root = document.querySelector('#root');
-        EventBus.on('recipe-data:got-data', this.update.bind(this));
+        EventBus.on('recipe-card:got-data', this.update.bind(this));
         EventBus.on('recipe-card:not-found', this.errorUpdate.bind(this));
         EventBus.on('recipe-card:bad-request', this.errorUpdate.bind(this));
         EventBus.on('recipe-card:server-error', this.errorUpdate.bind(this));

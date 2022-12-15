@@ -20,11 +20,11 @@ export class Router {
     constructor() {
         EventBus.off('recipe-page:loading');
         EventBus.off('recipe:loading');
-        EventBus.off('recipe-data:got-data');
-        EventBus.off('recipe-data:not-found');
-        EventBus.off('recipe-data:bad-request');
-        EventBus.off('recipe-data:server-error');
-        EventBus.off('recipe-page-card:got-data');
+        EventBus.off('recipe-card:got-data');
+        EventBus.off('recipe-card:not-found');
+        EventBus.off('recipe-card:bad-request');
+        EventBus.off('recipe-card:server-error');
+        EventBus.off('recipe-page:got-data');
         EventBus.off('recipe-page-card:not-found');
         EventBus.off('recipe-page-card:bad-request');
         EventBus.off('recipe-page-card:server-error');

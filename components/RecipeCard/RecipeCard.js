@@ -28,13 +28,6 @@ export class RecipeCard {
         this.container.append(recipeName);
         recipeName.classList.add('recipe-card-name');
         
-
-        const recipeCategory = document.createElement('div');
-        recipeCategory.textContent = category_recipe;
-        this.container.append(recipeCategory);
-        recipeCategory.classList.add('recipe-card-category');
-        
-
         const recipetime = document.createElement('div');
         recipetime.textContent = `${time} min`;
         this.container.append(recipetime);
