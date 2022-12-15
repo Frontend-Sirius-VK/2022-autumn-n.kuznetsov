@@ -1,8 +1,6 @@
 .header_style {
     display: flex;
-    -moz-box-align: center;
     align-items: center;
-    -moz-box-pack: center;
     justify-content: center;
     padding: 0px 10px 0px 0px;
     font-size: 10px;
@@ -16,8 +14,7 @@
 
 @media (max-width: 1000px) {
 header {
-  -moz-box-pack: center;
-  justify-content: center;
+    justify-content: center;
 }
 }
 
@@ -29,9 +26,7 @@ a, img {
 
 .links {
     display: flex;
-    -moz-box-align: center;
     align-items: center;
-    -moz-box-pack: center;
     justify-content: center;
     padding: 0px 10px 0px 0px;
     font-size: 10px;
@@ -53,17 +48,15 @@ a, img {
 
 .links:hover {
 
-  padding: 0px 5px 0px 0px;
+    padding: 0px 5px 0px 0px;
 }
 }
 
 img {
-display: inline-flex;
--moz-box-align: center;
-align-items: center;
--moz-box-pack: center;
-justify-content: center;
-width: 60px;
-height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
 }
 
