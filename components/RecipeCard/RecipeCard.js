@@ -5,7 +5,7 @@ export class RecipeCard {
     }
 
     render(recipe) {
-        const {url_image, name_recipe, category_recipe, time, description_recipe, author} = recipe;
+        const {id, url_image, name_recipe, category_recipe, time, description_recipe, author} = recipe;
         this.container = document.createElement('div');
         this.container.classList.add('recipeCard');
 
@@ -23,8 +23,9 @@ export class RecipeCard {
         image.classList.add('recipe-card-image');
   
 
-        const recipeName = document.createElement('div');
+        const recipeName = document.createElement('a');
         recipeName.textContent = name_recipe;
+        recipeName.href = `/recipe/${id}`
         this.container.append(recipeName);
         recipeName.classList.add('recipe-card-name');
         

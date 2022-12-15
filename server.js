@@ -31,10 +31,6 @@ app.get('/recipe/:id', (req,res) => {
 });
 
 
-app.listen(port, function() {
-    console.log(`Server listening port ${port}`);
-});
-
 app.get('/getRecipe', async (req, res) => {
     try {
         const result = await db.getRecipe();
@@ -48,9 +44,16 @@ app.get('/getRecipe', async (req, res) => {
 });
 
 app.get('/getRecipeById/:id', async (req,res) => {
+    try {
     const id = req.params.id;
     const result = await db.getRecipeById(id);
-    res.json(result);
+    if (!result){
+        res.status(500).end();
+    }
+    res.json(result[0]);
+} catch (error){
+    res.status(500).end();
+}
 });
 
 app.post('/create/recipe', async (req, res) => {
@@ -66,7 +69,15 @@ app.put('/update/recipe/:id', async (req, res) => {
 })
 
 app.delete('/delete/recipe/:id', async (req, res) => {
+    try {
     const { id } = req.body;
     const result = await db.deleteRecipe(id);
-    res.json({result});
-})
+} catch (error){
+    res.status(500).end();
+}
+});
+
+app.listen(port, function() {
+    console.log(`Server listening port ${port}`);
+});
+

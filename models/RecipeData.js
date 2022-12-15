@@ -12,17 +12,17 @@ export class RecipeData {
                 const {status} = response;
 
                 if (status === 404) {
-                    EventBus.emit('recipe-card:not-found', ['Ошибка 404', 'Страница, которую вы запрашиваете, не существует. Возможно был введен неверный адрес.']);
+                    EventBus.emit('recipe-card:not-found', {title:'Ошибка 404', description: 'Страница, которую вы запрашиваете, не существует. Возможно был введен неверный адрес.'});
                     return;
                 }
 
                 if (status === 400) {
-                    EventBus.emit('recipe-card:bad-request', ['Ошибка 400', 'Вы ввели некорректный запрос, проверьте данные.']);
+                    EventBus.emit('recipe-card:bad-request', {title: 'Ошибка 400', description: 'Вы ввели некорректный запрос, проверьте данные.'});
                     return;
                 }
 
                 if (status === 500) {
-                    EventBus.emit('recipe-card:server-error', ['Ошибка 500', 'Ошибка обращения к сервису. Попробуйте обновить страницу.']);
+                    EventBus.emit('recipe-card:server-error', {title: 'Ошибка 500', description: 'Ошибка обращения к сервису. Попробуйте обновить страницу.'});
                     return;
                 }
 

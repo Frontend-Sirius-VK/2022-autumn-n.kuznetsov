@@ -9,22 +9,20 @@ export class RecipeView {
         this.recipePage = null;
         this.root = document.querySelector('#root');
         EventBus.on('recipe-page-card:got-data', this.update.bind(this));
-        EventBus.on('recipe-page-card:not-found', this.errorUpdate.bind(this));
-        EventBus.on('recipe-page-card:bad-request', this.errorUpdate.bind(this));
-        EventBus.on('recipe-page-card:server-error', this.errorUpdate.bind(this));
+        EventBus.on('recipe-page-card:not-found', this.renderError.bind(this));
+        EventBus.on('recipe-page-card:bad-request', this.renderError.bind(this));
+        EventBus.on('recipe-page-card:server-error', this.renderError.bind(this));
     }
 
     render() {
         this.root.innerHTML = ''
         this.containerPage = document.createElement('div');
-        this.containerPage.classList.add('page-container');
 
         const headerContainer = document.createElement('div');
-        headerContainer.classList.add('page-header');
+        headerContainer.classList.add('header');
         this.header = new Header(headerContainer);
 
         const pageContainer = document.createElement('div');
-        pageContainer.classList.add('recipe');
         this.recipePage = new RecipePage(pageContainer);
 
         this.containerPage.append(headerContainer, pageContainer);
@@ -38,11 +36,13 @@ export class RecipeView {
         if (!data) {
             return;
         }
-        this.recipePage.innerHTML = '';
         this.recipePage.update(data);
     }
 
     renderError(data) {
+        if (this.containerPage) {
+            this.containerPage.innerHTML = '';
+        }
         this.container = document.createElement('div');
 
         const headerElement = document.createElement('div');
@@ -54,11 +54,11 @@ export class RecipeView {
 
         const errorStatus = document.createElement('p');
         errorStatus.classList.add('container-error-status');
-        errorStatus.textContent = data[0];
+        errorStatus.textContent = data.title;
 
         const errorText = document.createElement('p');
         errorText.classList.add('container-error-text');
-        errorText.textContent = data[1];
+        errorText.textContent = data.description;
 
         errorContainer.append(errorStatus, errorText);
 
@@ -67,10 +67,4 @@ export class RecipeView {
         this.header.render(headerElement);
     }
 
-    errorUpdate(data) {
-        if (this.containerPage) {
-            this.containerPage.innerHTML = '';
-        }
-        this.renderError(data);
-    }
 }

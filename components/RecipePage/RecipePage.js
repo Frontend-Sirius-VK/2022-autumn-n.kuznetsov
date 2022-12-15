@@ -6,7 +6,7 @@ export class RecipePage {
         const container = document.createElement('div');
         this.parent = parent;
         this.container = container;
-        EventBus.on('recipe-page:loading', this.update.bind(this));
+        EventBus.on('recipe-page:loading', this.render.bind(this));
     }
 
     render(data) {
@@ -19,16 +19,16 @@ export class RecipePage {
             return;
         }
 
-        const {id, urlImage, nameRecipe, categoryRecipe, time, descriptionRecipe, author} = data;
-
+        const {id, url_image, name_recipe, category_recipe, time, description_recipe, author} = data;
+        this.container = document.createElement('div');
+        this.container.classList.add('card-page')
 
         const headerContainer = document.createElement('div');
         headerContainer.classList.add('card-title');
         const headerName = document.createElement('a');
         headerName.classList.add('card-title-recipe');
 
-        headerName.textContent = nameRecipe;
-
+        headerName.textContent = name_recipe;
         headerContainer.append(headerName);
 
         const authorContainer = document.createElement('div');
@@ -45,7 +45,7 @@ export class RecipePage {
 
         const imageRecipe = document.createElement('img');
         imageRecipe.classList.add('card-image-content');
-        imageRecipe.src = urlImage;
+        imageRecipe.src = url_image;
 
         imageContainer.append(imageRecipe);
 
@@ -55,7 +55,7 @@ export class RecipePage {
         const content = document.createElement('a');
         content.classList.add('card-description-recipe');
 
-        content.textContent = descriptionRecipe;
+        content.textContent = description_recipe;url_image, name_recipe, category_recipe, time, 
         
 
         descriptionContainer.append(content);
@@ -65,7 +65,7 @@ export class RecipePage {
 
         const categotyRecipe = document.createElement('div');
         categotyRecipe.classList.add('card-categoty-recipe');
-        categotyRecipe.textContent = categoryRecipe;
+        categotyRecipe.textContent = category_recipe;
 
         categoryContainer.append(categotyRecipe);
 

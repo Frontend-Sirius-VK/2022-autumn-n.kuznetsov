@@ -44,13 +44,15 @@ export class Router {
         }
     }
 
-    getID() {
-        const pathParser = window.location.pathname.split('/')
-        let id;
-        if (pathParser[1] === 'undefined') {
-            id = pathParser[2]
+
+    getId() {
+        const pathName = window.location.pathname;
+        const rex = /\w+$/;
+        try {
+            return pathName.match(rex)[0];
+        } catch (error) {
+            return;
         }
-        return id
     }
 
     go(pathname) {
@@ -59,26 +61,27 @@ export class Router {
     }
 
     invokeController() {
-        const id = this.getID();
-        const controllerСheck = new MainController();
-        const {pathname} = window.location;
+        const id = this.getId();
+
+        const pathname = window.location.pathname;
+
         const result = routes.find((route) => {
-            const regexp = new RegExp(route.path );
+            const regexp = new RegExp(route.path);
             const matches = pathname.match(regexp);
 
-            return Boolean(matches)
+            if (!matches) {
+                return false;
+            }
+            return true;
         });
 
         if (!result) {
-            console.log('404')
+            return;
         }
+
         const ControllerClass = result.controller;
         const controller = new ControllerClass();
-        if (result.controller !== controllerСheck){
-            controller.process(id);
-        } else {
-            controller.process();
-        }
+        controller.process(id);
 
     }
 

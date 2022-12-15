@@ -13,7 +13,7 @@ export class Header {
 
         const icons = document.createElement('img');
         icons.src = './assets/images/logo.jpg';
-        
+
         const recipe = document.createElement('div');
         const linkRecipe = document.createElement('a');
         linkRecipe.classList.add('links');
@@ -53,8 +53,9 @@ export class Header {
 
         headerStyle.append(icons, recipe, journal, ideas, avtor, login);
 
-        header.appendChild(headerStyle);
+        header.append(headerStyle);
 
-        container.appendChild(header);
+        container.append(header);
     }
 }
+
