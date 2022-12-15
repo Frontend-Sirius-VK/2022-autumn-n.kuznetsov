@@ -1,0 +1,8 @@
+:root {
+    --description-color: white;
+    --description-text-color: black;
+    --header-style-color: rgb(0, 0, 0);
+    --links-color: rgb(0, 0, 0);
+    --link-hover-color: rgb(175, 33, 43);
+    --card-background: rgb(228, 37, 37);
+}
