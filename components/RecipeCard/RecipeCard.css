@@ -6,7 +6,7 @@
 }
 
 .сard {
-  background-color: rgb(228, 37, 37);
+  background-color: var(--card-background);
   padding: 30px;
   position: relative;
   box-shadow: 0 0 5px rgb(75 75 75 / 7%);

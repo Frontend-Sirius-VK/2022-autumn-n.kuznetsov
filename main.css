@@ -1,6 +1,7 @@
 @import './components/Header/Header.css';
 @import './components/DescriptionSiteEda/DescriptionSiteEda.css';
 @import './components/RecipeCard/RecipeCard.css';
+@import './components/Color/color.css';
 
 * {
   box-sizing: border-box;
@@ -26,7 +27,6 @@ body {
 .container-error-status {
   font-size: 30px;
   font-weight: 900;
-  color: var(--text-spec-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,7 +34,6 @@ body {
 }
 
 .container-error-text {
-  color: var(--text-spec-color);
   display: flex;
   align-items: center;
   justify-content: center;

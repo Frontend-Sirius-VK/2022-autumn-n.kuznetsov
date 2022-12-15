@@ -10,7 +10,7 @@
     letter-spacing: 1px;
     font-weight: 700;
     white-space: nowrap;
-    color: rgb(0, 0, 0);
+    color: var(--header-style-color);
     cursor: pointer;
 }
 
@@ -39,14 +39,14 @@ a, img {
     letter-spacing: 1px;
     font-weight: 700;
     white-space: nowrap;
-    color: rgb(0, 0, 0);
+    color: var(--links-color);
     cursor: pointer;
 
 }
 
 .links:hover {
 
-    color: rgb(175, 33, 43);
+    color: var(--link-hover-color);
 }
 
 @media (max-width: 1000px){
