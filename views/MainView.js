@@ -1,8 +1,8 @@
-import {DescriptionSiteEda} from "../components/DescriptionSiteEda/DescriptionSiteEda.js";
-import {Header} from "../components/Header/Header.js";
+import {DescriptionSiteEda} from '../components/DescriptionSiteEda/DescriptionSiteEda.js';
+import {Header} from '../components/Header/Header.js';
 
-import EventBus from "../utils/eventBus.js";
-import { CardRecipe } from "../components/CardRecipe/CardRecipe.js";
+import EventBus from '../utils/eventBus.js';
+import { CardRecipe } from '../components/CardRecipe/CardRecipe.js';
 
 
 
@@ -12,11 +12,11 @@ export class MainView {
         this.recipeCard = null;
         this.description = null
         this.container = null
+        this.root = document.querySelector('#root');
         EventBus.on('recipe-data:got-data', this.update.bind(this));
     }
 
     render() {
-        const root = document.querySelector('#root');
         this.container = document.createElement('div');
         const header = document.createElement('header');
         header.classList.add('header');
@@ -27,13 +27,15 @@ export class MainView {
         this.description = new DescriptionSiteEda(description);
 
         const recipeContainer = document.createElement('div');
-        this.resipeCard = new CardRecipe(recipeContainer);
-        recipeContainer.append(this.recipeCard);
+        recipeContainer.classList.add('recipe');
+        this.recipeCard = new CardRecipe(recipeContainer);
+        
 
         this.container.append(header, description, recipeContainer);
-        root.append(this.container);
+        this.root.append(this.container);
         this.header.render(header);
         this.description.render(description);
+        
     }
 
     update(data = {}) {
@@ -44,4 +46,3 @@ export class MainView {
         this.recipeCard.update(data);
     }
 }
-
