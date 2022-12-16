@@ -1,20 +1,26 @@
 .recipeCard {
-  margin: 25px auto 0;
-  position: relative;
-  width: 692px;
-  
-}
-
-.сard {
-  background-color: var(--card-background);
+  background-color: rgb(245, 213, 177);
   padding: 30px;
   position: relative;
   box-shadow: 0 0 5px rgb(75 75 75 / 7%);
   z-index: 1;
+  margin-bottom: 10px;
+  
 }
+
+
+.сard {
+  margin: 25px auto 0;
+  position: relative;
+  width: 692px;
+}
+
 
 .recipe-card-image {
   float: right;
+  margin: 4px 10px 2px 0px; 
+  width: 160px;
+  height: 160px;
 }
 
 .recipe-card-name {

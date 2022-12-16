@@ -5,7 +5,7 @@ export class PageData {
         this.recipe = null;
     }
 
-    fetchDataById(id) {
+    fetchData(id) {
         fetch(`/getRecipeById/${id}`)
             .then((response) => {
                 const {status} = response;

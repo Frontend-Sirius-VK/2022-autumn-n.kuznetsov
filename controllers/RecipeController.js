@@ -10,6 +10,6 @@ export class RecipeController {
 
         const recipeCard = new PageData();
         EventBus.emit('recipe-page:loading');
-        recipeCard.fetchDataById(id);
+        recipeCard.fetchData(id);
     }
 }

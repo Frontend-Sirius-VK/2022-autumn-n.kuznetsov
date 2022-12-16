@@ -55,7 +55,7 @@ export class RecipePage {
         const content = document.createElement('a');
         content.classList.add('card-description-recipe');
 
-        content.textContent = description_recipe;url_image, name_recipe, category_recipe, time, 
+        content.textContent = description_recipe;
         
 
         descriptionContainer.append(content);
