@@ -1,0 +1,18 @@
+@import './components/Header/Header.css';
+@import './components/DescriptionSiteEda/DescriptionSiteEda.css';
+@import './components/RecipeCard/RecipeCard.css';
+@import './components/Color/color.css';
+
+
+
+body {
+    color: #000;
+    line-height: 1;
+  }
+
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+
+}
