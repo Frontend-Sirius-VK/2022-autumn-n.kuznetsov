@@ -1,0 +1,51 @@
+.flat-01 .loader-container {
+    width: 80px;
+    height: 80px;
+  }
+  .flat-01 .cube {
+    display: inline-block;
+    float: left;
+    width: 30%;
+    height: 30%;
+    margin: 1.5%;
+    transform: scale(0);
+    transform-origin: center center;
+    background-color: var(--loader-flat-background);
+    animation: flat1 2s infinite linear;
+  }
+  .flat-01 .cube:nth-of-type(3) {
+    animation-delay: 0s;
+  }
+  .flat-01 .cube:nth-of-type(2),
+  .flat-01 .cube:nth-of-type(6) {
+    animation-delay: 0.2s;
+  }
+  .flat-01 .cube:nth-of-type(1),
+  .flat-01 .cube:nth-of-type(5),
+  .flat-01 .cube:nth-of-type(9) {
+    animation-delay: 0.4s;
+  }
+  .flat-01 .cube:nth-of-type(4),
+  .flat-01 .cube:nth-of-type(8) {
+    animation-delay: 0.5s;
+  }
+  .flat-01 .cube:nth-of-type(7) {
+    animation-delay: 0.7s;
+  }
+  @keyframes flat1 {
+    0% {
+      transform: scale(0);
+    }
+    30% {
+      transform: scale(1.1);
+    }
+    40% {
+      transform: scale(1);
+    }
+    80% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }

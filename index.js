@@ -1,5 +1,3 @@
-import {HelloPage} from './components/helloPage.js';
+import {router} from './routing/Router.js';
 
-const div = document.querySelector('div');
-const page = new HelloPage(div);
-page.render();
+router.start();
