@@ -8,8 +8,8 @@ export class RecipeController {
         const view = new RecipeView();
         view.render();
 
-        const recipeCard = new PageData();
+        const pageData = new PageData();
         EventBus.emit('recipe-page:loading');
-        recipeCard.fetchData(id);
+        pageData.fetchData(id);
     }
 }

@@ -27,9 +27,6 @@ export class RecipeView {
 
         this.containerPage.append(headerContainer, pageContainer);
         this.root.append(this.containerPage);
-
-        
-        this.recipePage.render(pageContainer);
         this.header.render(headerContainer);
     }
 

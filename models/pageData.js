@@ -29,7 +29,6 @@ export class PageData {
             })
 
             .then((data) => {
-                this.recipe = data;
                 EventBus.emit('recipe-page:got-data', data);
             })
     }

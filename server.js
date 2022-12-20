@@ -18,8 +18,7 @@ app.get('/', (req,res) => {
     } catch (error){
         res.status(500).end();
     }
-});
-
+})
 
 app.get('/recipe/:id', (req,res) => {
     try {
@@ -27,8 +26,7 @@ app.get('/recipe/:id', (req,res) => {
     } catch (error){
         res.status(500).end();
     }
-});
-
+})
 
 app.get('/getRecipe', async (req, res) => {
     try {

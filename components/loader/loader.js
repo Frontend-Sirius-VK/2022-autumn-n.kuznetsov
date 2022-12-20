@@ -13,7 +13,7 @@ export class Loader {
         loaderPage.append(loader);
 
         const flat = document.createElement('div');
-        flat.className = 'loader flat-01';
+        flat.className = 'loader';
         const loader2 = document.createElement('div');
         loader2.className = 'loader-container';
         const cube = document.createElement('div');
@@ -37,9 +37,9 @@ export class Loader {
         const cube9 = document.createElement('div');
         cube9.className = 'cube';
 
-        loader2.append(cube, cube1, cube2, cube3, cube4, cube5, cube6, cube7, cube8, cube9);
-        flat.append(loader2)
+        loader2.appendChild(cube, cube1, cube2, cube3, cube4, cube5, cube6, cube7, cube8, cube9);
+        flat.appendChild(loader2)
 
-        this.parent.append(loaderPage, flat);
+        this.parent.appendChild(loaderPage, flat);
     }
 }

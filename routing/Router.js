@@ -44,7 +44,6 @@ export class Router {
         }
     }
 
-
     getID() {
         const pathParser = window.location.pathname.split('/')
         let id;

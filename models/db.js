@@ -31,6 +31,7 @@ async function getRecipeById(id) {
         console.log(error);
     }
 }
+
 async function createRecipe(url_image, name_recipe, category_recipe, time, description_recipe, author) {
     try {
         const result = await pool.query(
