@@ -24,7 +24,7 @@ export class Router {
         EventBus.off('recipe-card:not-found');
         EventBus.off('recipe-card:bad-request');
         EventBus.off('recipe-card:server-error');
-        EventBus.off('recipe-page:got-data');
+        EventBus.off('recipe-page-card:got-data');
         EventBus.off('recipe-page-card:not-found');
         EventBus.off('recipe-page-card:bad-request');
         EventBus.off('recipe-page-card:server-error');
@@ -43,7 +43,6 @@ export class Router {
             }
         }
     }
-
 
     getID() {
         const pathParser = window.location.pathname.split('/')
