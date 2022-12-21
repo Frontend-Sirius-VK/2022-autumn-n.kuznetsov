@@ -4,7 +4,9 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
   }
-  
+  body {
+    background-color: #f4c531;
+  }
 
 .card-page {
     background-color: #ffffff;
@@ -49,7 +51,7 @@
 .page-details {
     background-color: #f4c531;
     position: relative;
-    margin: -4.3em 0 0 0;
+    margin: -3.3em 0 0 0;
     text-align: center;
     padding: 0.6em 0;
     z-index: 2;
@@ -67,8 +69,8 @@
 
 .card-categoty-recipe {
     display: block;
-    margin-block-start: 1.33em;
-    margin-block-end: 1.33em;
+    margin-block-start: 0.33em;
+    margin-block-end: 0.33em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-weight: bold;
