@@ -23,53 +23,53 @@ export class RecipePage {
         this.container = document.createElement('div');
         this.container.classList.add('card-page')
 
-        const headerContainer = document.createElement('div');
-        headerContainer.classList.add('card-title');
-        const headerName = document.createElement('a');
-        headerName.classList.add('card-title-recipe');
-
-        headerName.textContent = name_recipe;
-        headerContainer.append(headerName);
+        const pageContainer = document.createElement('div');
+        pageContainer.classList.add('page-container');
 
         const authorContainer = document.createElement('div');
-        authorContainer.classList.add('card-author');
+        authorContainer.classList.add('card-author-recipe');
+        authorContainer.textContent = author;
+        pageContainer.append(authorContainer);
 
-        const authorText = document.createElement('div');
-        authorText.classList.add('card-author-recipe');
-        authorText.textContent = author;
+        const authorButton = document.createElement('button');
+        authorButton.classList.add('author-btn')
+        pageContainer.append(authorButton);
 
-        authorContainer.append(authorText);
+        const pageIngredient = document.createElement('div');
+        pageIngredient.classList.add('page-ingredient');
 
-        const imageContainer = document.createElement('div');
-        imageContainer.classList.add('card-image');
 
         const imageRecipe = document.createElement('img');
         imageRecipe.classList.add('card-image-content');
         imageRecipe.src = url_image;
+        pageIngredient.append(imageRecipe);
 
-        imageContainer.append(imageRecipe);
+        const pageDetails = document.createElement('div');
+        pageDetails.classList.add('page-details');
 
-        const descriptionContainer = document.createElement('div');
-        descriptionContainer.classList.add('card-description');
-
-        const content = document.createElement('a');
-        content.classList.add('card-description-recipe');
-
-        content.textContent = description_recipe;
-        
-
-        descriptionContainer.append(content);
-
-        const categoryContainer = document.createElement('div');
-        categoryContainer.classList.add('card-categoty');
+        const headerName = document.createElement('a');
+        headerName.classList.add('card-title-recipe');
+        headerName.textContent = name_recipe;
+        pageDetails.append(headerName);
 
         const categotyRecipe = document.createElement('div');
         categotyRecipe.classList.add('card-categoty-recipe');
         categotyRecipe.textContent = category_recipe;
+        pageDetails.append(categotyRecipe);
+        pageIngredient.append(pageDetails);
 
-        categoryContainer.append(categotyRecipe);
 
-        this.container.append(headerContainer, authorContainer, imageContainer, descriptionContainer, categoryContainer);
+        const content = document.createElement('a');
+        content.classList.add('card-description-recipe');
+        content.textContent = description_recipe;
+        pageIngredient.append(content);
+
+        const searchButton = document.createElement('button');
+        searchButton.classList.add('search-btn')
+        pageIngredient.append(searchButton);
+
+
+        this.container.append(pageContainer, pageIngredient);
         this.parent.append(this.container);
     }
 

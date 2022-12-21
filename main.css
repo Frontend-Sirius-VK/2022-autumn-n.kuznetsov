@@ -2,6 +2,8 @@
 @import './components/DescriptionSiteEda/DescriptionSiteEda.css';
 @import './components/RecipeCard/RecipeCard.css';
 @import './components/Color/color.css';
+@import './components/RecipePage/RecipePage.css';
+@import '../components/loader/loader.css';
 
 * {
   box-sizing: border-box;

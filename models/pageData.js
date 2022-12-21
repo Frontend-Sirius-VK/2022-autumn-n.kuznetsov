@@ -29,7 +29,7 @@ export class PageData {
             })
 
             .then((data) => {
-                EventBus.emit('recipe-page:got-data', data);
+                EventBus.emit('recipe-page-card:got-data', data);
             })
     }
 }
