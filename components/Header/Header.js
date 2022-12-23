@@ -1,3 +1,5 @@
+import Logo from '../../assets/images/logo.jpg';
+
 export class Header {
     constructor(parent) {
         this.parent = parent;
@@ -12,7 +14,7 @@ export class Header {
         headerStyle.classList.add('header_style');
 
         const icons = document.createElement('img');
-        icons.src = '../assets/images/logo.jpg';
+        icons.src = Logo;
 
         const recipe = document.createElement('div');
         const linkRecipe = document.createElement('a');

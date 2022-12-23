@@ -12,14 +12,6 @@ const port = process.env.PORT || 3000;
 const db = require('./models/db.js')
 
 
-app.get('/', (req,res) => {
-    try {
-        res.sendFile(path.join(__dirname, '.', 'index.html'));
-    } catch (error){
-        res.status(500).end();
-    }
-});
-
 
 app.get('/recipe/:id', (req,res) => {
     try {

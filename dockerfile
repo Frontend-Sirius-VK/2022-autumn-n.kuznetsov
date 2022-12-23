@@ -1,11 +1,11 @@
 FROM node:19.2.0
 
-WORKDIR /express-project
-
 COPY package.json .
 COPY package-lock.json .
 RUN npm ci
+# для сохранения зависимостей
 
-# COPY ./src/Server.js .
 COPY server.js .
-COPY models/ ./models/
+COPY models/db.js .
+COPY migrations .
+COPY . .

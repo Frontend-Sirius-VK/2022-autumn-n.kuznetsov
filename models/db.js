@@ -13,11 +13,8 @@ const pool = new Pool({
 
 async function getRecipe() {
     try {
-        const res = await pool.query('Select * from recipes');
-        console.log("cktuyghm")
-        console.log(res.rows)
+        const res = await pool.query('SELECT * FROM recipes');
         return res.rows;    
-
     } catch (error) {
         console.log(error);
     }
