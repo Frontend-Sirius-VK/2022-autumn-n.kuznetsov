@@ -10,23 +10,21 @@ app.use(express.json());
 const port = process.env.PORT || 3000;
 
 const db = require('./models/db.js')
+const {json} = require("express");
 
 
 
-app.get('/recipe/:id', (req,res) => {
-    try {
-        res.sendFile(path.join(__dirname + '/index.html'));
-    } catch (error){
-        res.status(500).end();
-    }
-});
-
-
-app.get('/getRecipe', async (req, res) => {
+app.get('/api/recipe', async (req, res) => {
     try {
         const result = await db.getRecipe();
-        if (!result){
+        if (!result) {
             res.status(500).end();
+        }
+        if (result.code === 'ECONNREFUSED') {
+            res.status(500).end();
+        }
+        if (json(result) === ''){
+            res.status(404).end();
         }
         res.json(result);
     } catch (error){
@@ -34,12 +32,15 @@ app.get('/getRecipe', async (req, res) => {
     }
 });
 
-app.get('/getRecipeById/:id', async (req,res) => {
+app.get('/api/recipe/:id', async (req,res) => {
     try {
     const id = req.params.id;
     const result = await db.getRecipeById(id);
     if (!result){
         res.status(500).end();
+    }
+    if (result.name === 'error') {
+        res.status(404).end();
     }
     res.json(result[0]);
 } catch (error){

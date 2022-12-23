@@ -6,7 +6,7 @@ export class PageData {
     }
 
     fetchData(id) {
-        fetch(`/getRecipeById/${id}`)
+        fetch(`/api/recipe/${id}`)
             .then((response) => {
                 const {status} = response;
 

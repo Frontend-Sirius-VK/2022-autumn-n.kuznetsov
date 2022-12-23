@@ -7,7 +7,7 @@ export class RecipeData {
     }
 
     fetchData() {
-        fetch('/getRecipe')
+        fetch('/api/recipe')
             .then((response) => {
                 const {status} = response;
 
