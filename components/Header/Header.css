@@ -38,7 +38,7 @@ a, img {
     white-space: nowrap;
     color: var(--links-color);
     cursor: pointer;
-
+    pointer-events: none;
 }
 
 .links:hover {
