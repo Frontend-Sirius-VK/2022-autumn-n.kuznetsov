@@ -99,13 +99,13 @@
     font-weight: 600;
   }
 
-.card-description {
+.card-description-recipe {
     font-size: 1em;
     position: relative;
     display: grid;
     grid-template-columns: auto auto;
     gap: 0.8em 1.1em;
-    padding: 1.2em 0 0 1.2em;
+    padding: 10px 0 0 1.2em;
     color: #303040;
     text-transform: capitalize;
 }

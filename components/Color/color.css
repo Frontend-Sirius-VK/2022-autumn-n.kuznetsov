@@ -1,7 +1,7 @@
 :root {
     --loader-flat-background: #ef1144;
     --description-color: white;
-    --description-text-color: black;
+    --description-text-color: white;
     --header-style-color: rgb(0, 0, 0);
     --links-color: rgb(0, 0, 0);
     --link-hover-color: rgb(175, 33, 43);

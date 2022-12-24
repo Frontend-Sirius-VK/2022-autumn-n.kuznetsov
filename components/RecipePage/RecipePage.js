@@ -66,6 +66,7 @@ export class RecipePage {
 
         const searchButton = document.createElement('button');
         searchButton.classList.add('search-btn')
+        searchButton.textContent = 'Рецепт'
         pageIngredient.append(searchButton);
 
 
